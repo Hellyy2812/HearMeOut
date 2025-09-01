@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HearMeOut</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="script" href="script.js">
+    <link rel="icon" type="image/x-icon" href="Black and White Simple Music Studio Logo.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+</head>
+<body>
+    <div class="vibe"><h1 class="Choose" style="color: #9B3C5F;">Choose your vibe</h1>
+        <div class="mood-options-1">
+          <label class="mood-button"><input type="checkbox" value="happy">Happy &#128516;</label>
+          <label class="mood-button"><input type="checkbox" value="dance">Nach Le &#128131;</label>
+          <label class="mood-button"><input type="checkbox" value="monsoon">Monsoon Mehfil &#9748;</label>
+        </div>
+        <div class="mood-options-2">
+          <!--<label class="mood-button"><input type="checkbox" value="retro">Retro Radio &#128251;</label>-->
+          <label class="mood-button"><input type="checkbox" value="melancholy">Melancholic &#128148;</label>
+        </div>
+        <div class="mood-options-3">
+          <label class="mood-button"><input type="checkbox" value="indie">Hindi Indie &#127928;</label>
+        </div>
+
+       <div class="s-btn"><button class="search-btn" id="search">Search 🔍</button></div> 
+       <script>
+        document.getElementById("search").addEventListener("click", function(){
+         const selectedMoods = [...document.querySelectorAll("input[type='checkbox']:checked")] 
+         .map(cb => cb.value);
+         if(selectedMoods.length === 0){
+          alert("Please select a vibe!!");
+          return;
+         }
+         localStorage.setItem("selectedMoods", JSON.stringify(selectedMoods));
+         window.location.href = "song-page.html";
+        });
+       </script>
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="Search.html">
+    
+    <link rel="icon" type="image/x-icon" href="Black and White Simple Music Studio Logo.png">
+    <title>HearMeOut</title>
+</head>
+<body>
+  <div id="vinyl-loader">
+    <img src="vinyl.png" alt="loading..." class="spin-vinyl">
+  </div>
+
+        <h1 style="margin-top: 0px;">Your Song 🎧</h1>
+    
+        <!-- Main Song Card -->
+        <div class="main-card">
+          <img id="main-album" src="default.jpg" alt="Main Song Cover" class="album-cover" />
+          <div class="song-details">
+            <h2 id="main-title">Song Title</h2>
+            <p id="main-artist">by Artist</p>
+            <button class="play-btn" id="main-play-btn">▶ Play Now</button>
+          </div>
+        </div>
+      <h3 style="text-align: center;">Other Recommendation</h3>
+        <div class="recommendation" id="other-song-card">
+            <img src="cover.jpg" alt="Song Title" />
+            <h3>Song Title</h3>
+            <p>Artist Name</p>
+            <button class="play-btn hidden">▶ Play Now</button>
+          </div>
+      </div>
+    
+  <script>
+    const songDatabase = {
+      happy: [
+      { title: "Abhi Kuch Dino Se", artist: "Mohit Chauhan", link: "https://youtu.be/fbdxYoFb64g?si=PmrW69Ez7N_YCk8q", 
+      cover:"images/abhikuchdinose.jpg" },
+      { title: "Ye Tumhari Meri Baatein", artist: "Dominique Cerejo", link: "https://youtu.be/LpmGCHYAj1E?si=j6hmG2Y79Hr9CY54",
+        cover:"images/yetumhari.jpg"},
+      { title: "Jaane Ye Kya Hua", artist: "KK", link: "https://youtu.be/HEAmcT5Gy_c?si=4Ohvm7QOwtXFXcJ_" ,
+         cover:"images/jaaneyekyahua.jpg"},
+      { title: "Taarefon Se", artist: "Arijit Singh", link: "https://youtu.be/Ie6p1d3Vfy4?si=TXZ8n_T2pIoFYkiI",
+        cover:"images/Taarefon.jpg"},
+      { title: "Rang De", artist: "Clinton Cerejo,  Shashaa Tirupathi", link: "https://youtu.be/wlDwbfciKHk?si=9TROIvWMrCUvXBbl",
+        cover:"images/rangde.jpg"},
+      { title: "Azaadiyan", artist: "Neuman Pinto, Amit Trivedi", link: "https://youtu.be/ugm2SOScEqA?si=GkVHfXfisjPeiLh6",
+        cover:"images/azaadiyan.jpg"},
+      { title: "Darmiyaan", artist: "Raghu Dixit", link:"https://youtu.be/An-mK5R2c8w?si=L4CAEKXNhtb7RIcV", cover: "images/darmiyaan.jpg" },
+      ],
+
+      /*nach le*/
+
+      dance: [
+        { title: "Butterfly", artist: "Aaman Trikha, Nooran Sisters",link: "https://youtu.be/XDby7mfJmPE?si=0PTL3smIa6b0NtR4" ,
+        cover: "images/butterfly.jpg" },
+        { title: "Aunty Ji", artist: "Bianca Gomes, Ash King",link: "https://youtu.be/4HYrrHIk6l8?si=6gnOfw_MEHQ6OZNh", 
+        cover: "images/aunty.jpg" },
+        { title: "Slow motion angreza", artist: "Loy Mendonsa, Sukhwinder Singh",link: "https://youtu.be/60vIVA5AZ9M?si=v87mxkD8G-5l5gzx", cover: "images/slow.jpg" },
+        { title: "Taake Jhanke", artist: "Arijit Singh",link: "https://youtu.be/akGvEQwCqkc?si=yBRJgfLI9iAGNh9P", 
+        cover: "images/taake.jpg" },
+        { title: "Daingad Daingad", artist: " Niharika Sinha, Deepali Sathe,Udit narayan",link: "https://youtu.be/wgyZZbEwt-I?si=kRKNessaPIRB-P_s", cover: "images/daingad.jpg" }
+      ],
+
+
+      monsoon: [
+      { title: "Dekho Na", artist: "Sonu Nigam, Sunidhi Chauhan",link: "https://youtu.be/v4h5iPlxj0c?si=TMv-nZ8GZC1WItHQ" ,
+      cover: "images/dekhona.jpg" },
+      { title: "Kaisi Hai Ye Rut", artist: "Srinivas",link: "https://youtu.be/XBr11cQDg-E?si=_yxYiXKA-c4qSQMc" ,
+      cover: "images/kaisihaiye.jpg" },
+      { title: "Bhage Re Mann", artist: "Sunidhi Chauhan",link: "https://youtu.be/dCosqNGw2ck?si=aOlz79MQ-VNHEUjJ" ,
+      cover: "images/bhageremann.jpg" },
+      { title: "Hum Tum", artist: "Alka Yagnik, Babul Supriyo",link: "https://youtu.be/94XJ_F4Z71g?si=kdALyUC4ciLb29ri" ,
+      cover: "images/humtum.jpg" },
+      { title: "Aao Na", artist: "Sadhana Sargam",link: "https://youtu.be/b4iOwqZCmv4?si=D_RGXwjuvsJkENZM" ,
+      cover: "images/aaona.jpg" },
+      
+      ],
+
+
+      "upbeat-sad": [
+        { title: "Dard-e-Disco", artist: "Sukhwinder Singh", cover: "disco.jpg" },
+        { title: "Agar Tum Saath Ho", artist: "Alka Yagnik", cover: "saathho.jpg" }
+      ],
+
+
+      retro: [
+        { title: "Lag Ja Gale", artist: "Lata Mangeshkar", cover: "lagjagale.jpg" },
+        { title: "Roop Tera Mastana", artist: "Kishore Kumar", cover: "roop.jpg" }
+      ],
+
+
+      melancholy: [
+        { title: "Sooha Saaha", artist: "Zeba , Alia Bhatt",link:"https://youtu.be/nzUmTp6apx8?si=XVsiUZnoMfAmoxTl" ,cover: "images/sooha.jpg" },
+        { title: "Stay a little longer", artist: "Anushka Shahaney",link: "https://youtu.be/hvJplPJPiP4?si=2ek9F6m6-GK3EENi" , cover: "images/stay.jpg" },
+        { title: "Matlabi Yariyan - Unplugged", artist: "Parineeti Chopra, Vipin Patwa",link: "https://youtu.be/XE9dVRjJYq0?si=89vPUBrtL4Lp2aG1" , cover: "images/matlabiyariyan.jpg" },
+        { title: "Khoon Chala", artist: "A.R.Rahman, Mohit Chauhan",link: "https://youtu.be/fbbHNMXp5dU?si=6fhrYcezMR_uI0bX" , cover: "images/khoon.jpg" },
+        { title: "Madno", artist: "Kshitij Tare, Chinmayi ",link: "https://youtu.be/oHiqkyppPq8?si=vfMoAxVVvgRA2fe9" , cover: "images/madno.jpg" },
+      ],
+
+      
+      indie: [
+        { title: "Tere Tere", artist: "Twin Strings", link:"https://youtu.be/uVhJgSqDwl0?si=K87i3NOyf9zzu30y", cover: "images/tere.jpg" },
+        { title: "Izhaar", artist: "Tanmaya Bhatnagar", link:"https://youtu.be/D-WGPdDApzg?si=AGAxPSI9XXrmBJGu", cover: "images/izhaar.jpg" },
+        { title: "Tu Rehti Hai", artist: "Aditya Rikhari", link:"https://youtu.be/SFd1Ixby3XQ?si=gUj4jU4fX4Fsc3SV", cover: "images/turehtihai.jpg" },
+        { title: "Kahin Dur", artist: "Shourya Malhotra, Paras Khanna, Elijah Peter", link:"https://youtu.be/EzHVZ188U7E?si=Xu8wN3UpI5lh11r-", cover: "images/kahindur.jpg" },
+        { title: "Jaadoogari", artist: "Anand Bhaskar", link:"https://youtu.be/HA0Su4GfIP0?si=lLkdBVFH8Zr2R1qh", cover: "images/jaadoo.jpg" },
+      ]
+    };
+
+    function loadSongs() {
+      const selectedMoods = JSON.parse(localStorage.getItem("selectedMoods")) || [];
+
+      let songPool = [];
+      selectedMoods.forEach(mood => {
+        if (songDatabase[mood]) {
+          songPool = songPool.concat(songDatabase[mood]);
+        }
+      });
+
+      if (songPool.length === 0) return;
+
+      const shuffled = songPool.sort(() => 0.5 - Math.random());
+      const mainSong = shuffled[0];
+
+      // Update main card
+      document.getElementById("main-title").textContent = mainSong.title;
+      document.getElementById("main-artist").textContent = `by ${mainSong.artist}`;
+      document.getElementById("main-album").src = mainSong.cover;
+      document.getElementById("main-play-btn").onclick = () => {
+        window.open(mainSong.link, "_blank");
+      };
+
+
+      // Add other song cards
+      const container = document.getElementById("other-song-card");
+      container.innerHTML = "";
+
+      shuffled.slice(1, 2).forEach(song => {
+        const card = document.createElement("div");
+        card.className = "other-song-card";
+        card.innerHTML = `
+          <img src="${song.cover}" alt="${song.title}" />
+          <h3>${song.title}</h3>
+          <p>${song.artist}</p>
+          <button class="play-btn" onclick="window.open('${song.link}', '_blank')">▶ Play Now</button>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // Run on page load
+    window.onload = loadSongs;
+
+
+    //vinyl
+    window.addEventListener('DOMContentLoaded', function(){
+      setTimeout(() => {
+        document.getElementById('vinyl-loader').style.display = 'none';
+        document.querySelector('.main-card').style.display = 'flex';
+        document.querySelector('.recommendation').style.display = 'flex';
+      }, 1500);
+    });
+  </script>
+  
+</body>
+</html>

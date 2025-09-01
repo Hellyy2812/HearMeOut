@@ -1,0 +1,312 @@
+body {
+    font-family: "Coming Soon", cursive;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #FDDDE6;
+}
+
+.landing-page{
+background-color: #FDDDE6;
+color:  #9B3C5F;
+width: 100%;
+height: 100vh;
+}
+
+.page-1{
+    text-align: center;
+    padding-top: 14%;
+}
+
+.find{
+    color: #A04562;
+    background-color: whitesmoke;
+    font-size: xx-large;
+    font-family: "Coming Soon", cursive;
+    margin-top: 50px;
+    height: 80px;
+    width: 280px;
+    padding: 5 5 5 5;
+    border: none;
+    border-color: #9B3C5F;
+    border-radius: 7px;
+}
+
+.find:hover{
+cursor: pointer;
+opacity: 0.8;
+}
+
+/* search page css*/
+
+label{
+    font-family: "Coming Soon", cursive;
+    color: #A04562;
+}
+
+.Choose{
+    color: #9B3C5F;
+    font-size: xx-large;
+    text-align: center;
+    margin-top: 7%;
+    margin-bottom: 50px;
+}
+
+.mood-options-1,
+.mood-options-2,.mood-options-3 {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    max-width: 600px;
+    margin: auto;
+    box-sizing: border-box;
+  }
+
+  .mood-options-2,
+  .mood-options-3{
+    padding-top: 7px;
+  }
+  
+  .mood-button {
+    background-color: #d69aaf;
+    color: white;
+    height: auto;
+    width: 250px;
+    text-align: center;
+    border: 2px solid #9B3C5F;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-family: "Coming Soon", cursive;
+    font-size: 19px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    max-width: 48%; /* Stops buttons from being too wide */
+    display: inline-block;
+   
+    
+  }
+
+.mood-button input{
+    display: none;
+}
+
+.mood-button input:checked + span,
+.mood-button:has(input:checked){
+    background-color: #9B3C5F;
+    color: whitesmoke;
+}
+
+@media (max-width: 100px){
+    .mood-button{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 13px;
+        padding: 8px 11px;
+    }
+
+    .search-btn{
+        margin-top: 20px;
+    }
+}
+
+.search-btn {
+    background-color: whitesmoke;
+    color: #A04562;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    font-size: 30px;
+    font-family: "Coming Soon", cursive;
+  }
+
+  .s-btn{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+  }
+
+.record{
+    width: 200px;
+    height: 200px;
+    animation: spin 2s linear infinite;
+    animation-play-state: paused;
+}
+@keyframes spin {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+.spinning{
+    animation-play-state: running;
+}
+
+#loading{
+    display: none;
+    text-align: center;
+    margin-top: 20%;
+}
+
+
+/* song-page.html*/
+
+    body {
+      font-family: "Coming Soon", cursive;
+      background-color: #fff0f5;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #9B3C5F;
+      text-align: center;
+      margin-bottom: 30px;
+      font-family: "Coming Soon", cursive;
+    }
+
+    h2,
+    h3,
+    p{
+      color: #9B3C5F;
+      font-family: "Coming Soon", cursive;
+    }
+
+    .main-card {
+      background-color: #ffe0ec;
+      border-radius: 16px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+      max-width: 700px;
+      margin: 0 auto 10px;
+      display: none;
+    }
+
+    .album-cover {
+      width: 180px;
+      border-radius: 12px;
+    }
+
+    .song-details {
+      flex-grow: 1;
+    }
+
+    .song-details h2 {
+      margin: 0 0 10px;
+      font-size: 24px;
+    }
+
+    .song-details p {
+      margin: 0 0 10px;
+      font-style: italic;
+    }
+
+    .play-btn {
+      background-color: #A04562;
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .play-btn:hover {
+      background-color: #e24c90;
+    }
+
+    .other-song-card {
+      background-color: #f8f8f8;
+      border-radius: 12px;
+      width: 180px;
+      padding: 12px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      text-align: center;
+      position: relative;
+      
+    }
+    .recommendation{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      display: none;
+    }
+    
+    .other-song-card img {
+      width: 100%;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+    
+    .other-song-card h3, .other-song-card p {
+      margin: 8px 0;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+    
+    /* Hide play button by default */
+    .other-song-card .play-btn {
+      display: none;
+      margin-top: 8px;
+      font-size: 14px;
+      padding: 6px 10px;
+      background-color: #A04562;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    
+    /* On Hover: Transform into main card style */
+    .other-song-card:hover {
+      background-color: #ffe0ec;
+      transform: scale(1.05);
+      box-shadow: 0 0 12px rgba(0,0,0,0.2);
+    }
+    
+    .other-song-card:hover img {
+      transform: scale(1.05);
+    }
+    
+    .other-song-card:hover .play-btn {
+      display: inline-block;
+    }
+
+
+    #vinyl-loader {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+      background: white;
+      padding: 20px;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .spin-vinyl {
+      width: 100px;
+      height: 100px;
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+
+    
+
+  
